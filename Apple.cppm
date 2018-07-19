@@ -1,11 +1,12 @@
 
 #pragma once
 
+export module Apple;
+import AbstractFruit;
+
 #include "fruitsalad_export.h"
 
-#include "AbstractFruit.h"
-
-class FRUITSALAD_EXPORT Apple : public AbstractFruit {
+export class FRUITSALAD_EXPORT Apple : public AbstractFruit {
 public:
   void setColorIndex(int colorIndex);
   int colorIndex() const;

@@ -1,5 +1,4 @@
-
-#include "Grape.h"
+module Grape;
 
 void Grape::setSeedless(int seedless) { m_seedless = seedless; }
 

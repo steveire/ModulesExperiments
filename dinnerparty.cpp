@@ -1,12 +1,12 @@
+import FruitBowl;
+import SaladBowl;
 
-#include "FruitBowl.h"
-#include "SaladBowl.h"
+import Tomato;
 
-#include "Apple.h"
-#include "Grape.h"
-#include "Tomato.h"
+import AbstractFruit;
+import std;
 
-#include <iostream>
+import AbstractBowl; // Workaround PR37980.
 
 int main() {
   FruitBowl fb;

@@ -1,5 +1,8 @@
+module SaladBowl;
 
-#include "SaladBowl.h"
+import AbstractFruit;
+import AbstractBowl;
+import std;
 
 std::unique_ptr<AbstractFruit>
 SaladBowl::add(std::unique_ptr<AbstractFruit> fruit) {

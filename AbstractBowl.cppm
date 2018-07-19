@@ -1,14 +1,13 @@
-
 #pragma once
+
+export module AbstractBowl;
+
+import AbstractFruit;
+import std;
 
 #include "bowls_export.h"
 
-#include "AbstractFruit.h"
-
-#include <memory>
-#include <vector>
-
-class BOWLS_EXPORT AbstractBowl {
+export class BOWLS_EXPORT AbstractBowl {
 public:
   AbstractBowl() = default;
   AbstractBowl &operator=(AbstractBowl const &) = delete;

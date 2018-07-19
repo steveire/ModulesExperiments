@@ -1,5 +1,4 @@
-
-#include "Tomato.h"
+module Tomato;
 
 void Tomato::setSize(int size) { m_size = size; }
 

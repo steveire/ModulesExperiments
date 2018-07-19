@@ -1,5 +1,4 @@
-
-#include "Apple.h"
+module Apple;
 
 void Apple::setColorIndex(int colorIndex) { m_colorIndex = colorIndex; }
 

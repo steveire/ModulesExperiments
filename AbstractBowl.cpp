@@ -1,5 +1,9 @@
+module AbstractBowl;
 
-#include "AbstractBowl.h"
+// Are these two imports really necessary, since they're in the module interface
+// file too?
+import AbstractFruit;
+import std;
 
 AbstractBowl::~AbstractBowl() = default;
 

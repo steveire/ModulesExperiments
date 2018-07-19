@@ -1,9 +1,11 @@
 
 #pragma once
 
+export module AbstractFruit;
+
 #include "abstractfruit_export.h"
 
-class ABSTRACTFRUIT_EXPORT AbstractFruit {
+export class ABSTRACTFRUIT_EXPORT AbstractFruit {
 public:
   virtual ~AbstractFruit();
 

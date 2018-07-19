@@ -1,5 +1,4 @@
-
-#include "AbstractFruit.h"
+module AbstractFruit;
 
 AbstractFruit::~AbstractFruit() = default;
 
