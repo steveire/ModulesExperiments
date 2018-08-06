@@ -1,6 +1,7 @@
 module FruitBowl;
 
 import Apple;
+import Grape;
 
 import AbstractFruit;
 import std;
@@ -10,6 +11,7 @@ import AbstractBowl;
 
 FruitBowl::FruitBowl() {
   add(std::make_unique<Apple>());
+  add(std::make_unique<Grape>());
 }
 
 std::unique_ptr<AbstractFruit>

@@ -23,9 +23,12 @@ $CLANG_EXE -fPIC -shared -o libabstractfruit.so AbstractFruit.cpp.o AbstractFrui
 
 FRUITSALAD_COMPILE_FLAGS="-Dfruitsalad_EXPORTS -fPIC -fvisibility=hidden"
 $CLANG_EXE -std=c++17 -fmodules-ts -Xclang -fmodules-codegen --precompile $FRUITSALAD_COMPILE_FLAGS $DISABLE_PRAGMA_WARNING -c Apple.cppm -fmodule-file=AbstractFruit.pcm
+$CLANG_EXE -std=c++17 -fmodules-ts -Xclang -fmodules-codegen --precompile $FRUITSALAD_COMPILE_FLAGS $DISABLE_PRAGMA_WARNING -c Grape.cppm -fmodule-file=AbstractFruit.pcm
 $CLANG_EXE -std=c++17 -fmodules-ts $FRUITSALAD_COMPILE_FLAGS -o Apple.pcm.o -c Apple.pcm
+$CLANG_EXE -std=c++17 -fmodules-ts $FRUITSALAD_COMPILE_FLAGS -o Grape.pcm.o -c Grape.pcm
 $CLANG_EXE -std=c++17 -fmodules-ts $FRUITSALAD_COMPILE_FLAGS -o Apple.cpp.o -fmodule-file=Apple.pcm -c Apple.cpp
-$CLANG_EXE -fPIC -shared -o libfruitsalad.so Apple.cpp.o Apple.pcm.o libabstractfruit.so
+$CLANG_EXE -std=c++17 -fmodules-ts $FRUITSALAD_COMPILE_FLAGS -o Grape.cpp.o -fmodule-file=Grape.pcm -c Grape.cpp
+$CLANG_EXE -fPIC -shared -o libfruitsalad.so Apple.cpp.o Grape.cpp.o Apple.pcm.o Grape.pcm.o libabstractfruit.so
 
 NOTFRUITSALAD_COMPILE_FLAGS="-Dnotfruitsalad_EXPORTS -fPIC -fvisibility=hidden"
 $CLANG_EXE -std=c++17 -fmodules-ts -Xclang -fmodules-codegen --precompile $NOTFRUITSALAD_COMPILE_FLAGS $DISABLE_PRAGMA_WARNING -c Tomato.cppm -fmodule-file=AbstractFruit.pcm
@@ -41,7 +44,7 @@ $CLANG_EXE -std=c++17 -fmodules-ts $BOWLS_COMPILE_FLAGS -o AbstractBowl.pcm.o -c
 $CLANG_EXE -std=c++17 -fmodules-ts $BOWLS_COMPILE_FLAGS -o FruitBowl.pcm.o -c FruitBowl.pcm
 $CLANG_EXE -std=c++17 -fmodules-ts $BOWLS_COMPILE_FLAGS -o SaladBowl.pcm.o -c SaladBowl.pcm
 $CLANG_EXE -std=c++17 -fmodules-ts $BOWLS_COMPILE_FLAGS -o AbstractBowl.cpp.o -fmodule-file=AbstractBowl.pcm -c AbstractBowl.cpp
-$CLANG_EXE -std=c++17 -fmodules-ts $BOWLS_COMPILE_FLAGS -o FruitBowl.cpp.o -fmodule-file=FruitBowl.pcm -fmodule-file=Apple.pcm -c FruitBowl.cpp
+$CLANG_EXE -std=c++17 -fmodules-ts $BOWLS_COMPILE_FLAGS -o FruitBowl.cpp.o -fmodule-file=FruitBowl.pcm -fmodule-file=Apple.pcm -fmodule-file=Grape.pcm -c FruitBowl.cpp
 $CLANG_EXE -std=c++17 -fmodules-ts $BOWLS_COMPILE_FLAGS -o SaladBowl.cpp.o -fmodule-file=SaladBowl.pcm -fmodule-file=AbstractFruit.pcm -c SaladBowl.cpp
 # NOTE: Need to list AbstractBowl.pcm.o here for AbstractBowl::size, which is inline.
 $CLANG_EXE -fPIC -shared -o libbowls.so AbstractBowl.cpp.o FruitBowl.cpp.o SaladBowl.cpp.o AbstractBowl.pcm.o FruitBowl.pcm.o SaladBowl.pcm.o libfruitsalad.so libabstractfruit.so
